@@ -7,7 +7,6 @@ class TopTVShowsPage {
     cy.contains('Photos').click();
   }
 
-
   openPhotoGallery() {
     cy.get('[data-testid="mv-gallery-button"]')
       .should('be.visible')
@@ -28,8 +27,6 @@ class TopTVShowsPage {
     cy.get('button[title="Close Prompt"]')
       .should('be.visible')
       .click();
-
-
   }
 
   clickSecondPhoto() {

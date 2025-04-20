@@ -13,7 +13,7 @@ export function requestBerryFlavor(flavor) {
 export function findMostPotentBerry(spicyBerries) {
     const berryDetails = [];
 
-    // Use cy.wrap() to ensure the chain is handled correctly
+    //cy.wrap() to ensure the chain is handled correctly
     return cy.wrap(spicyBerries).each((name) => {
         requestBerryByName(name).then((res) => {
             const spicyFlavor = res.body.flavors.find(f => f.flavor.name === 'spicy');

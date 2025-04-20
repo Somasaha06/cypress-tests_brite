@@ -1,0 +1,29 @@
+BugSummary: Unable to rate Top Box Office movies with 10 stars – "Rate" button remains disabled
+
+Description:When a user attempts to rate a movie from the Top Box Office section with the maximum rating (10 stars), the "Rate" button in the IMDb rating modal remains disabled, preventing submission.
+This issue only occurs when selecting 10 stars—ratings from 1 to 9 stars behave as expected.
+
+Steps to Reproduce:
+1. Go to IMDb.com
+2. Open the Menu and navigate to Top Box Office
+3. Click on the 2nd movie in the list
+4. Click on the IMDb Rating button
+5. Select 10 stars in the rating modal
+6. Observe that the "Rate" button remains disabled
+
+Expected Result:The "Rate" button should become enabled when 10 stars are selected, allowing the user to submit their rating.
+Actual Result:The "Rate" button remains disabled when 10 stars are selected. The user is unable to submit a rating.
+
+Reproducibility: Consistently reproducible (100%)
+Environment:
+* Website: IMDb.com
+* Section: Top Box Office
+* Browser: [e.g., Chrome 123]
+* OS: [e.g., Windows 11 / macOS Ventura]
+
+Severity: 🟠 Major
+Priority: 🔼 High
+
+Attachments:
+[Attach screenshot or screen recording if available]
+[Console logs, if available]

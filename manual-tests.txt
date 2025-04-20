@@ -1,0 +1,80 @@
+1.Scenario: Enter minimum valid value
+
+ Scenario: Enter minimum valid value (10)
+  Given I open the form page
+  When I enter "10" into the tentacles input field
+  And I click the "Send" button
+  Then I should see a "Success" message
+
+2.Scenario: Enter maximum valid value
+
+Scenario: Enter maximum valid value (100)
+  Given I open the form page
+  When I enter "100" into the tentacles input field
+  And I click the "Send" button
+  Then I should see a "Success" message
+
+3.Scenario: Enter a valid mid-range value
+
+Scenario: Enter valid mid-range value (55)
+  Given I open the form page
+  When I enter "55" into the tentacles input field
+  And I click the "Send" button
+  Then I should see a "Success" message
+
+4.Scenario: Enter a value below the minimum
+
+Scenario: Enter value below minimum (9)
+  Given I open the form page
+  When I enter "9" into the tentacles input field
+  And I click the "Send" button
+  Then I should see an "Error" message
+
+5.Scenario: Enter a value above the maximum
+
+Scenario: Enter value above maximum (101)
+  Given I open the form page
+  When I enter "101" into the tentacles input field
+  And I click the "Send" button
+  Then I should see an "Error" message
+
+6.Scenario: Enter a non-numeric value
+
+Scenario: Enter non-numeric value ("abc")
+  Given I open the form page
+  When I enter "abc" into the tentacles input field
+  And I click the "Send" button
+  Then I should see an "Error" message
+
+7.Scenario: Enter a decimal value
+
+Scenario: Enter decimal value (10.5)
+  Given I open the form page
+  When I enter "10.5" into the tentacles input field
+  And I click the "Send" button
+  Then I should see an "Error" message
+
+8.Scenario: Leave the field empty
+
+Scenario: Leave the input field empty
+  Given I open the form page
+  When I leave the tentacles input field empty
+  And I click the "Send" button
+  Then I should see an "Error" message
+
+9.Scenario: Use keyboard arrows to increase/decrease
+
+Scenario: Use keyboard arrows to increment/decrement
+  Given I open the form page
+  When I focus on the tentacles input field
+  And I press the up arrow key once starting from 10
+  Then the field should show "11"
+  And I should see a "Success" message when I click "Send"
+
+10. Scenario: Enter value just below the maximum 
+
+Scenario: Enter value just below the maximum (99)
+  Given I open the form page
+  When I enter "99" into the tentacles input field
+  And I click the "Send" button
+  Then I should see a "Success" message
