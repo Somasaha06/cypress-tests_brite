@@ -29,15 +29,19 @@ To run tests in headless mode:
 
 To run test in firefox:
    npx cypress run --browser firefox
-   
+
 To run test in firefox:
    npx cypress run --browser chrome
 
 #########################################################################
+
+
 Manual Test:
+
 File location: /manual-tests.txt
 
 Bug Report:
+
 File location: /bug-report.txt
 
 
