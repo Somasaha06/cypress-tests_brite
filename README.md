@@ -23,10 +23,13 @@ npm install --save-dev cypress mochawesome mochawesome-merge mochawesome-report-
 
 Run Tests  in interactive mode:
  npx cypress open
+
 To run tests in headless mode:
     npx cypress run
+
 To run test in firefox:
    npx cypress run --browser firefox
+   
 To run test in firefox:
    npx cypress run --browser chrome
 
