@@ -1,4 +1,11 @@
 class TopTVShowsPage {
+
+  clickShow(showName) {
+    cy.contains('a', showName, { matchCase: false })
+      .should('be.visible')
+      .click({ force: true });
+  }
+
   clickBreakingBad() {
     cy.contains('Breaking Bad').click();
   }

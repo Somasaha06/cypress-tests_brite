@@ -8,15 +8,21 @@ import TopTVShowsPage from '../../support/pages/TopTVShowsPage';
 import BornTodayPage from '../../support/pages/BornTodayPage';
 
 describe('IMDb Automation with POM', () => {
+    let testData;
+    before(() => {
+        cy.fixture('testData').then((data) => {
+            testData = data;
+        });
+    });
     beforeEach(() => {
-        cy.viewport(1280, 800); // ✅ Set resolution to a stable desktop size
+        cy.viewport(1280, 800); //Set resolution to a stable desktop size
         cy.visit('/');
         cy.acceptCookiesIfVisible(); // <-- Accept cookies if banner is shown
     });
     it('1. Nicolas Cage > Upcoming > Completed Movie', () => {
         HomePage.open();
-        HomePage.search('Nicolas Cage');
-        SearchPage.clickFirstResult('Nicolas Cage');
+        HomePage.search(testData.actorName);
+        SearchPage.clickFirstResult(testData.actorName);
         ActorPage.expandUpcoming();
         ActorPage.clickFirstCompletedMovie();
     });
@@ -26,17 +32,17 @@ describe('IMDb Automation with POM', () => {
         HomePage.openMenu();
         MenuPage.goToTopBoxOffice();
         TopBoxOfficePage.clickSecondMovie();
-        MoviePage.rateMovieWithFiveStars();
+        MoviePage.rateMovieWithStars(testData.topBoxOfficeRating);
     });
 
     it('3. Top 250 TV Shows > Breaking Bad > Danny Trejo > 2nd Photo', () => {
         HomePage.open();
         HomePage.openMenu();
         MenuPage.goToTopTVShows();
-        TopTVShowsPage.clickBreakingBad();
+        TopTVShowsPage.clickShow(testData.tvShow);
         TopTVShowsPage.goToPhotos();
         TopTVShowsPage.openPhotoGallery();
-        TopTVShowsPage.filterPhotosBy('Danny Trejo');
+        TopTVShowsPage.filterPhotosBy(testData.photoActor);
         TopTVShowsPage.clickSecondPhoto();
     });
 
@@ -51,14 +57,14 @@ describe('IMDb Automation with POM', () => {
         MenuPage.goToBornToday();
         BornTodayPage.clearSearch();
         BornTodayPage.selectBirthdayOption(birthday);
-        BornTodayPage.clickThirdLink(2); // 3rd item
+        BornTodayPage.clickThirdLink(2);
         cy.screenshot('born-yesterday-3rd-celeb');
     });
 
     it('5. Born 40 Years Ago Today > 1st Result > 1st Link > Screenshot', () => {
         const today = new Date();
         const day = String(today.getDate()).padStart(2, '0');
-        const month = String(today.getMonth() + 1).padStart(2, '0'); // MM
+        const month = String(today.getMonth() + 1).padStart(2, '0');
         const year = today.getFullYear() - 40;
 
         HomePage.open();
